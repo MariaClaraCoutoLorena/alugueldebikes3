@@ -1,12 +1,10 @@
 import { Bike } from "./bike";
-import { Rent } from "./rent";
 import { User } from "./user";
 import crypto from 'crypto'
 import bcrypt from 'bcrypt';
 export class App {
     users: User[] = []
     bikes: Bike[] = []
-    rents: Rent[] = []
     salt: String = bcrypt.genSaltSync(10)
 
     findUser(email: string): User {
@@ -90,15 +88,6 @@ export class App {
         console.log("Usuários:")
         for(let user of this.users){
             console.log("- "+user.name+", "+ user.email)
-        }
-    }
-    listRents() {
-        let datainicio, datafim
-        console.log("Reservas:")
-        for(let rent of this.rents){
-            datainicio = rent.dateFrom.getDate()+"/"+(rent.dateFrom.getMonth()+1)+"/"+rent.dateFrom.getFullYear()
-            datafim = rent.dateTo.getDate()+"/"+(rent.dateTo.getMonth()+1)+"/"+rent.dateTo.getFullYear()
-            console.log("- Bike "+rent.bike.name+", reservada por "+rent.user.name+" de "+datainicio+" até "+datafim)
         }
     }
 }

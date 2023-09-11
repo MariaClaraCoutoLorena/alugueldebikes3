@@ -8,10 +8,10 @@ export class Bike {
         public description: string,
         public ratings: number,
         public imageUrls: string[],
-        public disponibilidade: boolean,
         public valorDiario: number,
-        public dateFrom: Date,
-        public dateTo: Date,
+        public disponibilidade?: boolean,
+        public dateFrom?: Date,
+        public dateTo?: Date,
         public id?: string
     ) {}
 }

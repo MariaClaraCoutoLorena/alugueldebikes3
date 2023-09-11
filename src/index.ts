@@ -1,11 +1,10 @@
 import { App } from "./app";
 import { Bike } from "./bike";
-import { Rent } from "./rent";
 import { User } from "./user";
 
 const app = new App()
 const bike = new Bike('caloi mountain', 'mountain bike', 100, 200, 150.5, 
-    'My bike', 5, [])
+    'My bike', 5, [], 10)
 const bikeId = app.registerBike(bike)
 const user1 = new User('Jose', 'jose@mail.com', '1234')
 const user2 = new User('Maria', 'maria@mail.com', '1234')
@@ -22,10 +21,9 @@ dayAfterTomorrow.setDate(dayAfterTomorrow.getDate() + 2)
 const twoDaysFromToday = new Date()
 twoDaysFromToday.setDate(twoDaysFromToday.getDate() + 3)
 app.rentBike(bikeId, 'jose@mail.com', yesterday, today)
-app.returnBike(bikeId, 'jose@mail.com')
+console.log(app.returnBike(bikeId))
 app.listBikes()
 app.listUsers()
-app.listRents()
 app.verificaUser("maria@mail.com","1234")
 
 
